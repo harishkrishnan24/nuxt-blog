@@ -2,25 +2,13 @@
   <section class="post-list">
     <section class="post-list">
       <PostPreview
-        id="1"
+        v-for="post in posts"
+        :key="post.id"
+        :id="post.id"
         :is-admin="isAdmin"
-        thumbnail="https://www.itechpeeps.com/wp-content/uploads/2019/04/grid-ai.png"
-        title="Hello there!"
-        previewText="This is my first post!"
-      />
-      <PostPreview
-        id="2"
-        :is-admin="isAdmin"
-        thumbnail="https://www.itechpeeps.com/wp-content/uploads/2019/04/grid-ai.png"
-        title="Hello there2!"
-        previewText="This is my second post!"
-      />
-      <PostPreview
-        id="3"
-        :is-admin="isAdmin"
-        thumbnail="https://www.itechpeeps.com/wp-content/uploads/2019/04/grid-ai.png"
-        title="Hello there3!"
-        previewText="This is my third post!"
+        :thumbnail="post.thumbnail"
+        :title="post.title"
+        :previewText="post.previewText"
       />
     </section>
   </section>
@@ -36,6 +24,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 }

@@ -1,12 +1,12 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">Title of the Post</h1>
+      <h1 class="post-title">{{loadedPosts.title}}</h1>
       <div class="post-details">
-        <div class="post-detail">Last Updated on XXX</div>
-        <div class="post-detail">Written by NAME</div>
+        <div class="post-detail">Last Updated on {{loadedPosts.updatedDate}}</div>
+        <div class="post-detail">Written by {{loadedPosts.author}}</div>
       </div>
-      <p class="post-content">Content of the Post</p>
+      <p class="post-content">{{loadedPosts.content}}</p>
       <section class="post-feedback">
         <p>
           Let me know what you think about the post, send a email to
@@ -18,6 +18,29 @@
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPosts: {
+          id: '1',
+          title: `First Post (ID: ${context.params.id})`,
+          previewText: 'This is our first post!',
+          author: 'Harish Krishnan',
+          updatedDate: new Date(),
+          content:
+            'as dhajs djashd jhask hjkdash kjdasdjha kjdjkadjka kjd kashj hh aks',
+          thumbnail:
+            'https://www.itechpeeps.com/wp-content/uploads/2019/04/grid-ai.png'
+        }
+      })
+    }, 1500)
+  }
+}
+</script>
+
 
 <style scoped>
 .single-post-page {
