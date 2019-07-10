@@ -1,6 +1,6 @@
 <template>
   <div class="posts-page">
-    <PostList :posts="loadedPosts"/>
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
@@ -11,6 +11,7 @@ export default {
   components: {
     PostList
   },
+  middleware: 'log',
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts

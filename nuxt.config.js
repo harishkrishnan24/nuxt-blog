@@ -60,5 +60,8 @@ export default {
         })
       }
     }
+  },
+  env: {
+    fbAPIKey: 'AIzaSyCEZrEnbCCUnB4_gnThoP-Sb575qctgkFQ'
   }
 }
