@@ -1,4 +1,5 @@
 import pkg from './package'
+import bodyParser from 'body-parser'
 
 export default {
   mode: 'universal',
@@ -63,5 +64,6 @@ export default {
   },
   env: {
     fbAPIKey: 'AIzaSyCEZrEnbCCUnB4_gnThoP-Sb575qctgkFQ'
-  }
+  },
+  serverMiddleware: [bodyParser.json(), '~/api']
 }
